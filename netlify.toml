@@ -1,0 +1,4 @@
+[build]
+base = "droom/"
+publish = "droom/build/"
+command = "yarn build"
