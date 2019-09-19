@@ -2,6 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { withFormik, Form, Field } from 'formik';
 import * as yup from 'yup';
 import axios from 'axios';
+import styled from 'styled-components';
+
+const StyledForm = styled(Form)`
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
+    margin: 50px;
+`;
 
 const CreateProfile = ({ errors, touched, status }) => {
     const [users, setNewUser] = useState([]);
@@ -13,7 +22,8 @@ const CreateProfile = ({ errors, touched, status }) => {
     }, [status])
 
     return (
-        <Form>
+        <StyledForm className='setProfile'>
+            <label>Set Up Profile</label>
             {touched.name && errors.name && <p className='error'>{errors.name}</p>}
             <Field type='text' name='name' placeholder='Name' />
 
@@ -27,7 +37,7 @@ const CreateProfile = ({ errors, touched, status }) => {
             <Field type='textarea' name='interests' placeholder='Interests' />
 
             <button type='submit'>Submit</button>
-        </Form>
+        </StyledForm>
     )
 }
 
