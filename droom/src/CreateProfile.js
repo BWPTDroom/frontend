@@ -25,6 +25,8 @@ const CreateProfile = ({ errors, touched, status }) => {
 
             {touched.interests && errors.interests && <p className='error'>{errors.interests}</p>}
             <Field type='textarea' name='interests' placeholder='Interests' />
+
+            <button type='submit'>Submit</button>
         </Form>
     )
 }
@@ -45,7 +47,7 @@ export default withFormik({
         pastExperiences: yup.string().required('Past experience is required!'),
         interests: yup.string().required('Interests are required!')
     }),
-    
+
     handleSubmit: (values, { setStatus }) => {
         axios.post('', values)
             .then((res) => {
