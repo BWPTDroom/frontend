@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { withFormik, Form, Field } from 'formik';
-import * as yup from 'yup'
+import * as yup from 'yup';
+import axios from 'axios';
 
 const CreateProfile = ({ errors, touched, status }) => {
     const [users, setNewUser] = useState([]);
@@ -21,6 +22,8 @@ const CreateProfile = ({ errors, touched, status }) => {
 
             {touched.pastExperiences && errors.pastExperiences && <p className='error'>{errors.pastExperiences}</p>}
             <Field type='textarea' name='pastExperiences' placeholder='Past Experiences' />
+
+            {touched.interests && errors.interests && <p className='error'>{errors.interests}</p>}
             <Field type='textarea' name='interests' placeholder='Interests' />
         </Form>
     )
@@ -34,6 +37,22 @@ export default withFormik({
             pastExperiences: values.pastExperiences || '',
             interests: values.interests || ''
         }
+    },
+
+    validationSchema: yup.object().shape({
+        name: yup.string().required('Name is required!'),
+        occupation: yup.string().required('Occupation is required!'),
+        pastExperiences: yup.string().required('Past experience is required!'),
+        interests: yup.string().required('Interests are required!')
+    }),
+    
+    handleSubmit: (values, { setStatus }) => {
+        axios.post('', values)
+            .then((res) => {
+                setStatus(res.data)
+            })
+            .catch((err) => {
+                console.log('Error:', err)
+            })
     }
-//post here
 })(CreateProfile)
