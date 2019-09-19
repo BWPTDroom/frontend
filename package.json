@@ -4,5 +4,9 @@
   "main": "index.js",
   "repository": "https://github.com/BWPTDroom/frontend.git",
   "author": "Andrew <andrewryanogle@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "formik": "^1.5.8",
+    "yup": "^0.27.0"
+  }
 }
