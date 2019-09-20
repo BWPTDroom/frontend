@@ -7,6 +7,10 @@
     "formik": "^1.5.8",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+<<<<<<< HEAD
+=======
+    "react-router-dom": "^5.0.1",
+>>>>>>> c307c71e10a4051e86cf58e56bfcfcd78adfd56f
     "react-scripts": "3.1.1",
     "styled-components": "^4.3.2",
     "yup": "^0.27.0"
