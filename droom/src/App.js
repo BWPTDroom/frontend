@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import CreateProfile from './CreateProfile';
+import CreateProfile from './components/CreateProfile';
 import SignUp from './components/SignUp';
 
 function App() {
