@@ -9,7 +9,42 @@ const StyledForm = styled(Form)`
     flex-direction: column;
     justify-content: left;
     align-items: center;
-    margin: 50px;
+    margin: 18px auto;
+    padding: 30px;
+    width: 380px;
+    height: auto;
+    max-width: 100%;
+    background-image: linear-gradient(75deg, #17242A, #327A77);
+    color: #FEFFFF;
+    box-shadow: 5px 10px 15px rgb(95, 99, 102, 0.3);
+`;
+
+const Title = styled.label`
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 60px;
+`;
+
+const StyledField = styled(Field)`
+    width: 318px;
+    height: 50px;
+    margin: 18px 0;
+    border-radius: 2px;
+    border: 1px solid #DEF2F1;
+    font-size: 16px;
+`;
+
+const StyledButton = styled.button`
+    height: 50px;
+    width: 318px;
+    margin: 30px 0;
+    border-radius: 2px;
+    background-color: #17242A;
+    border: 1px solid #FEFFFF;
+    color: #FEFFFF;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
 `;
 
 const CreateProfile = ({ errors, touched, status }) => {
@@ -23,23 +58,23 @@ const CreateProfile = ({ errors, touched, status }) => {
 
     return (
         <StyledForm className='setProfile'>
-            <label>Set Up Profile</label>
+            <Title className='title'>Set Up Profile</Title>
             {touched.name && errors.name && <p className='error'>{errors.name}</p>}
-            <Field type='text' name='name' placeholder='Name' />
+            <StyledField type='text' name='name' placeholder='Full Name' />
 
             {touched.email && errors.email && <p className='error'>{errors.email}</p>}
-            <Field type='text' name='email' placeholder='Email' />
+            <StyledField type='text' name='email' placeholder='Email' />
 
             {touched.phoneNumber && errors.phoneNumber && <p className='error'>{errors.phoneNumber}</p>}
-            <Field type='text' name='phoneNumber' placeholder='Phone Number' />
+            <StyledField type='text' name='phoneNumber' placeholder='Phone Number' />
 
             {touched.jobTitle && errors.jobTitle && <p className='error'>{errors.jobTitle}</p>}
-            <Field type='text' name='jobTitle' placeholder='Job Title' />
+            <StyledField type='text' name='jobTitle' placeholder='Job Title' />
 
             {touched.skills && errors.skills && <p className='error'>{errors.skills}</p>}
-            <Field type='textarea' name='skills' placeholder='Skills' />
+            <StyledField type='textarea' name='skills' placeholder='Skills' />
 
-            <button type='submit'>Submit</button>
+            <StyledButton type='submit'>Submit</StyledButton>
         </StyledForm>
     )
 }
