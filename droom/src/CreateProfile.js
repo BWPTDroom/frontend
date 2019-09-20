@@ -17,12 +17,23 @@ const StyledForm = styled(Form)`
     background-image: linear-gradient(75deg, #17242A, #327A77);
     color: #FEFFFF;
     box-shadow: 5px 10px 15px rgb(95, 99, 102, 0.3);
+    font-family: Roboto;
+`;
+
+const StyledErrors = styled.p`
+    color: #DEF2F1;
+    font-weight: light;
+    margin: 0;
+    margin-left: 32px;
+    padding: 0;
+    align-self: flex-start;
 `;
 
 const Title = styled.label`
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: bold;
     margin-top: 60px;
+    font-family: Maven Pro;
 `;
 
 const StyledField = styled(Field)`
@@ -40,9 +51,9 @@ const StyledButton = styled.button`
     margin: 30px 0;
     border-radius: 2px;
     background-color: #17242A;
-    border: 1px solid #FEFFFF;
+    border: 1px solid #327a77;
     color: #FEFFFF;
-    font-weight: bold;
+    font-family: Maven Pro;
     font-size: 16px;
     text-transform: uppercase;
 `;
@@ -59,20 +70,21 @@ const CreateProfile = ({ errors, touched, status }) => {
     return (
         <StyledForm className='setProfile'>
             <Title className='title'>Set Up Profile</Title>
-            {touched.name && errors.name && <p className='error'>{errors.name}</p>}
+            
             <StyledField type='text' name='name' placeholder='Full Name' />
-
-            {touched.email && errors.email && <p className='error'>{errors.email}</p>}
+            {touched.name && errors.name && <StyledErrors className='error'>{errors.name}</StyledErrors>}
+            
             <StyledField type='text' name='email' placeholder='Email' />
-
-            {touched.phoneNumber && errors.phoneNumber && <p className='error'>{errors.phoneNumber}</p>}
+            {touched.email && errors.email && <StyledErrors className='error'>{errors.email}</StyledErrors>}
+            
             <StyledField type='text' name='phoneNumber' placeholder='Phone Number' />
+            {touched.phoneNumber && errors.phoneNumber && <StyledErrors className='error'>{errors.phoneNumber}</StyledErrors>}
 
-            {touched.jobTitle && errors.jobTitle && <p className='error'>{errors.jobTitle}</p>}
             <StyledField type='text' name='jobTitle' placeholder='Job Title' />
-
-            {touched.skills && errors.skills && <p className='error'>{errors.skills}</p>}
+            {touched.jobTitle && errors.jobTitle && <StyledErrors className='error'>{errors.jobTitle}</StyledErrors>}
+            
             <StyledField type='textarea' name='skills' placeholder='Skills' />
+            {touched.skills && errors.skills && <StyledErrors className='error'>{errors.skills}</StyledErrors>}
 
             <StyledButton type='submit'>Submit</StyledButton>
         </StyledForm>
@@ -91,11 +103,11 @@ export default withFormik({
     },
 
     validationSchema: yup.object().shape({
-        name: yup.string().required('Name is required!'),
-        email: yup.string().email().required('Email is required!'),
-        phoneNumber: yup.number().min(9).required('Phone number is required!'),
-        jobTitle: yup.string().required('Current job title is required!'),
-        skills: yup.string().required('Skills are required!')
+        name: yup.string().required('Name is required'),
+        email: yup.string().email().required('Email is required'),
+        phoneNumber: yup.number().min(9).required('Phone number is required'),
+        jobTitle: yup.string().required('Current job title is required'),
+        skills: yup.string().required('Skills are required')
     }),
 
     handleSubmit: (values, { setStatus }) => {
