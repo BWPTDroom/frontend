@@ -1,4 +1,9 @@
 [build]
 base = "droom/"
-publish = "droom/build/"
+publish = "droom/build"
 command = "yarn build"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
