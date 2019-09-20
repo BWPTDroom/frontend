@@ -69,7 +69,7 @@ const StyledButton = styled.button`
     border-radius: 0px;
     background-image: linear-gradient(75deg, rgb(101,204,184, 0.6), rgb(101,204,184, 1));
     border: 1px solid rgb(101,204,184, 1);
-    color: rgb(242,242,242);
+    color: rgb(24,38,40, 1);
     text-transform: uppercase;
     font-family: 'Maven Pro';
     font-size: 0.8rem;
