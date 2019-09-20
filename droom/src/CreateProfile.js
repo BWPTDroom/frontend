@@ -27,14 +27,17 @@ const CreateProfile = ({ errors, touched, status }) => {
             {touched.name && errors.name && <p className='error'>{errors.name}</p>}
             <Field type='text' name='name' placeholder='Name' />
 
-            {touched.occupation && errors.occupation && <p className='error'>{errors.occupation}</p>}
-            <Field type='text' name='occupation' placeholder='Occupation' />
+            {touched.email && errors.email && <p className='error'>{errors.email}</p>}
+            <Field type='text' name='email' placeholder='Email' />
 
-            {touched.pastExperiences && errors.pastExperiences && <p className='error'>{errors.pastExperiences}</p>}
-            <Field type='textarea' name='pastExperiences' placeholder='Past Experiences' />
+            {touched.phoneNumber && errors.phoneNumber && <p className='error'>{errors.phoneNumber}</p>}
+            <Field type='text' name='phoneNumber' placeholder='Phone Number' />
 
-            {touched.interests && errors.interests && <p className='error'>{errors.interests}</p>}
-            <Field type='textarea' name='interests' placeholder='Interests' />
+            {touched.jobTitle && errors.jobTitle && <p className='error'>{errors.jobTitle}</p>}
+            <Field type='text' name='jobTitle' placeholder='Job Title' />
+
+            {touched.skills && errors.skills && <p className='error'>{errors.skills}</p>}
+            <Field type='textarea' name='skills' placeholder='Skills' />
 
             <button type='submit'>Submit</button>
         </StyledForm>
@@ -45,17 +48,19 @@ export default withFormik({
     mapPropsToValues: (values) => {
         return {
             name: values.name || '',
-            occupation: values.occupation || '',
-            pastExperiences: values.pastExperiences || '',
-            interests: values.interests || ''
+            email: values.email || '',
+            phoneNumber: values.phoneNumber || '',
+            jobTitle: values.jobTitle || '',
+            skills: values.skills || ''
         }
     },
 
     validationSchema: yup.object().shape({
         name: yup.string().required('Name is required!'),
-        occupation: yup.string().required('Occupation is required!'),
-        pastExperiences: yup.string().required('Past experience is required!'),
-        interests: yup.string().required('Interests are required!')
+        email: yup.string().email().required('Email is required!'),
+        phoneNumber: yup.number().min(9).required('Phone number is required!'),
+        jobTitle: yup.string().required('Current job title is required!'),
+        skills: yup.string().required('Skills are required!')
     }),
 
     handleSubmit: (values, { setStatus }) => {
