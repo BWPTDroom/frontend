@@ -120,13 +120,6 @@ const SignUp = ({ errors, touched, status }) => {
                             Submit
                      </StyledButton>
               </StyledForm>
-              {members.map(member => {
-                     return ( 
-                     <div key={member.username}>
-                            <p>{member.username}</p>
-                           <p>{member.role}</p>
-                     </div>
-              )})}
        </>
        )
 }
