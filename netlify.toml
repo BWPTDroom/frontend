@@ -1,4 +1,4 @@
 [build]
 base = "droom/"
 publish = "droom/build/"
-command = "npm run build"
+command = "yarn build"
