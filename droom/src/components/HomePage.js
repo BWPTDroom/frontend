@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 
 
-import SignUp from './components/SignUp';
+// import SignUp from './components/SignUp';
 
 function HomePage () {
     return (
@@ -12,7 +12,7 @@ function HomePage () {
             <NavLink to='/employeeprofile'>Employee Profile</NavLink>
             <NavLink to='/newjob'>Post New Job</NavLink>
 
-            <SignUp />
+            {/* <SignUp /> */}
         </div>
     )
 }
