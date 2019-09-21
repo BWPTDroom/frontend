@@ -59,7 +59,7 @@ const StyledButton = styled.button`
 `;
 
 const CreateJobListing = ({ errors, touched, status }) => {
-    const [listings, setNewListing] = useState([]);
+    const [listings, setNewListing] = useState([{position: 'Full Stack Developer', req_skills: 'HTML, CSS, JS', bonus_skills: 'Teamwork'}]);
 
     useEffect(() => {
         if(status) {
@@ -80,6 +80,14 @@ const CreateJobListing = ({ errors, touched, status }) => {
             {touched.bonus_skills && errors.bonus_skills && <StyledErrors className='error'>{errors.bonus_skills}</StyledErrors>}
             
             <StyledButton type='submit'>Submit</StyledButton>
+
+            {listings.map((job) => (
+                <div className='jobCard'>
+                    <p>Position: {job.position}</p>
+                    <p>Required Skills: {job.req_skills}</p>
+                    <p>Bonus Skills: {job.bonus_skills}</p>
+                </div>
+            ))}
         </StyledForm>
     )
 }
@@ -87,14 +95,16 @@ const CreateJobListing = ({ errors, touched, status }) => {
 export default withFormik({
     mapPropsToValues: (values) => {
         return {
-            company_name: values.company_name || '',
-            about_us: values.about_us || ''
+            position: values.position || '',
+            req_skills: values.req_skills || '',
+            bonus_skills: values.bonus_skills || ''
         }
     },
 
     validationSchema: yup.object().shape({
-        company_name: yup.string().required('Company name is required'),
-        about_us: yup.string().required('Description is required')
+        position: yup.string().required('Position title is required'),
+        req_skills: yup.string().required('Skills are required'),
+        bonus_skills: yup.string()
     }),
 
     handleSubmit: (values, { setStatus }) => {
