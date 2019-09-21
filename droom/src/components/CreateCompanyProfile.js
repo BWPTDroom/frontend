@@ -58,7 +58,7 @@ const StyledButton = styled.button`
     text-transform: uppercase;
 `;
 
-const CreateProfile = ({ errors, touched, status }) => {
+const CreateCompanyProfile = ({ errors, touched, status }) => {
     const [users, setNewUser] = useState([]);
 
     useEffect(() => {
@@ -69,23 +69,14 @@ const CreateProfile = ({ errors, touched, status }) => {
 
     return (
         <StyledForm className='setProfile'>
-            <Title className='title'>Set Up Employee Profile</Title>
+            <Title className='title'>Set Up Company Profile</Title>
             
-            <StyledField type='text' name='name' placeholder='Full Name' />
-            {touched.name && errors.name && <StyledErrors className='error'>{errors.name}</StyledErrors>}
+            <StyledField type='text' name='company_name' placeholder='Company Name' />
+            {touched.company_name && errors.company_name && <StyledErrors className='error'>{errors.company_name}</StyledErrors>}
             
-            <StyledField type='text' name='email' placeholder='Email' />
-            {touched.email && errors.email && <StyledErrors className='error'>{errors.email}</StyledErrors>}
+            <StyledField type='textarea' name='about_us' placeholder='About Us' />
+            {touched.about_us && errors.about_us && <StyledErrors className='error'>{errors.about_us}</StyledErrors>}
             
-            <StyledField type='text' name='phone_number' placeholder='Phone Number' />
-            {touched.phone_number && errors.phone_number && <StyledErrors className='error'>{errors.phone_number}</StyledErrors>}
-
-            <StyledField type='text' name='job_title' placeholder='Job Title' />
-            {touched.job_title && errors.job_title && <StyledErrors className='error'>{errors.job_title}</StyledErrors>}
-            
-            <StyledField type='textarea' name='skills' placeholder='Skills' />
-            {touched.skills && errors.skills && <StyledErrors className='error'>{errors.skills}</StyledErrors>}
-
             <StyledButton type='submit'>Submit</StyledButton>
         </StyledForm>
     )
@@ -94,25 +85,19 @@ const CreateProfile = ({ errors, touched, status }) => {
 export default withFormik({
     mapPropsToValues: (values) => {
         return {
-            name: values.name || '',
-            email: values.email || '',
-            phone_number: values.phone_number || '',
-            job_title: values.job_title || '',
-            skills: values.skills || ''
+            company_name: values.company_name || '',
+            about_us: values.about_us || ''
         }
     },
 
     validationSchema: yup.object().shape({
-        name: yup.string().required('Name is required'),
-        email: yup.string().email().required('Email is required'),
-        phone_number: yup.number().min(9).required('Phone number is required'),
-        job_title: yup.string().required('Current job title is required'),
-        skills: yup.string().required('Skills are required')
+        company_name: yup.string().required('Company name is required'),
+        about_us: yup.string().required('Description is required')
     }),
 
     handleSubmit: (values, { setStatus }) => {
         console.log(values);
-        axios.post('https://droomapi.herokuapp.com/api/sample/prospects', values)
+        axios.post('https://droomapi.herokuapp.com/api/sample/employers', values)
             .then((res) => {
                 setStatus(res.data)
                 console.log(res)
@@ -121,4 +106,4 @@ export default withFormik({
                 console.log('Error:', err)
             })
     }
-})(CreateProfile)
+})(CreateCompanyProfile)
