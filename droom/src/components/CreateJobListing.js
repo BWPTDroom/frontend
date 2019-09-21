@@ -58,24 +58,27 @@ const StyledButton = styled.button`
     text-transform: uppercase;
 `;
 
-const CreateCompanyProfile = ({ errors, touched, status }) => {
-    const [companies, setNewCompany] = useState([]);
+const CreateJobListing = ({ errors, touched, status }) => {
+    const [listings, setNewListing] = useState([]);
 
     useEffect(() => {
         if(status) {
-            setNewCompany([...companies, status])
+            setNewListing([...listings, status])
         }
     }, [status])
 
     return (
-        <StyledForm className='setCompanyProfile'>
-            <Title className='title'>Set Up Company Profile</Title>
+        <StyledForm className='createJobListing'>
+            <Title className='title'>Create New Job</Title>
             
-            <StyledField type='text' name='company_name' placeholder='Company Name' />
-            {touched.company_name && errors.company_name && <StyledErrors className='error'>{errors.company_name}</StyledErrors>}
+            <StyledField type='text' name='position' placeholder='Position Title' />
+            {touched.position && errors.position && <StyledErrors className='error'>{errors.position}</StyledErrors>}
             
-            <StyledField type='textarea' name='about_us' placeholder='About Us' />
-            {touched.about_us && errors.about_us && <StyledErrors className='error'>{errors.about_us}</StyledErrors>}
+            <StyledField type='textarea' name='req_skills' placeholder='Required Skills' />
+            {touched.req_skills && errors.req_skills && <StyledErrors className='error'>{errors.req_skills}</StyledErrors>}
+
+            <StyledField type='textarea' name='bonus_skills' placeholder='Bonus Skills' />
+            {touched.bonus_skills && errors.bonus_skills && <StyledErrors className='error'>{errors.bonus_skills}</StyledErrors>}
             
             <StyledButton type='submit'>Submit</StyledButton>
         </StyledForm>
@@ -106,4 +109,4 @@ export default withFormik({
                 console.log('Error:', err)
             })
     }
-})(CreateCompanyProfile)
+})(CreateJobListing)
