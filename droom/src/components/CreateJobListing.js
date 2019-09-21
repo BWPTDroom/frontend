@@ -66,7 +66,7 @@ const CreateJobListing = ({ errors, touched, status }) => {
             setNewListing([...listings, status])
         }
     }, [status])
-
+//confusion
     return (
         <StyledForm className='createJobListing'>
             <Title className='title'>Create New Job</Title>
