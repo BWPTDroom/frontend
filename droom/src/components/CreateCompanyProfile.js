@@ -68,7 +68,7 @@ const CreateCompanyProfile = ({ errors, touched, status }) => {
     }, [status])
 
     return (
-        <StyledForm className='setProfile'>
+        <StyledForm className='setCompanyProfile'>
             <Title className='title'>Set Up Company Profile</Title>
             
             <StyledField type='text' name='company_name' placeholder='Company Name' />

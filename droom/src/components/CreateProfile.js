@@ -80,8 +80,11 @@ const CreateProfile = ({ errors, touched, status }) => {
             <StyledField type='text' name='phone_number' placeholder='Phone Number' />
             {touched.phone_number && errors.phone_number && <StyledErrors className='error'>{errors.phone_number}</StyledErrors>}
 
-            <StyledField type='text' name='job_title' placeholder='Job Title' />
+            <StyledField type='text' name='job_title' placeholder='Current Job Title' />
             {touched.job_title && errors.job_title && <StyledErrors className='error'>{errors.job_title}</StyledErrors>}
+
+            <StyledField type='text' name='desired_position' placeholder='Desired Position' />
+            {touched.desired_position && errors.desired_position && <StyledErrors className='error'>{errors.desired_position}</StyledErrors>}
             
             <StyledField type='textarea' name='skills' placeholder='Skills' />
             {touched.skills && errors.skills && <StyledErrors className='error'>{errors.skills}</StyledErrors>}
@@ -98,6 +101,7 @@ export default withFormik({
             email: values.email || '',
             phone_number: values.phone_number || '',
             job_title: values.job_title || '',
+            desired_position: values.desired_position || '',
             skills: values.skills || ''
         }
     },
@@ -107,6 +111,7 @@ export default withFormik({
         email: yup.string().email().required('Email is required'),
         phone_number: yup.number().min(9).required('Phone number is required'),
         job_title: yup.string().required('Current job title is required'),
+        desired_position: yup.string().required('Desired position is required'),
         skills: yup.string().required('Skills are required')
     }),
 
