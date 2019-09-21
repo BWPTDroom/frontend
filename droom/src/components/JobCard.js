@@ -2,4 +2,4 @@ import React from 'react';
 
 
 
-export default HomePage;
+export default JobCard;
