@@ -58,34 +58,27 @@ const StyledButton = styled.button`
     text-transform: uppercase;
 `;
 
-const CreateProfile = ({ errors, touched, status }) => {
-    const [users, setNewUser] = useState([]);
+const CreateJobListing = ({ errors, touched, status }) => {
+    const [listings, setNewListing] = useState([]);
 
     useEffect(() => {
         if(status) {
-            setNewUser([...users, status])
+            setNewListing([...listings, status])
         }
     }, [status])
-
     return (
-        <StyledForm className='setProfile'>
-            <Title className='title'>Set Up Profile</Title>
+        <StyledForm className='createJobListing'>
+            <Title className='title'>Create New Job</Title>
             
-            <StyledField type='text' name='name' placeholder='Full Name' />
-            {touched.name && errors.name && <StyledErrors className='error'>{errors.name}</StyledErrors>}
+            <StyledField type='text' name='position' placeholder='Position Title' />
+            {touched.position && errors.position && <StyledErrors className='error'>{errors.position}</StyledErrors>}
             
-            <StyledField type='text' name='email' placeholder='Email' />
-            {touched.email && errors.email && <StyledErrors className='error'>{errors.email}</StyledErrors>}
-            
-            <StyledField type='text' name='phoneNumber' placeholder='Phone Number' />
-            {touched.phoneNumber && errors.phoneNumber && <StyledErrors className='error'>{errors.phoneNumber}</StyledErrors>}
+            <StyledField type='textarea' name='req_skills' placeholder='Required Skills' />
+            {touched.req_skills && errors.req_skills && <StyledErrors className='error'>{errors.req_skills}</StyledErrors>}
 
-            <StyledField type='text' name='jobTitle' placeholder='Job Title' />
-            {touched.jobTitle && errors.jobTitle && <StyledErrors className='error'>{errors.jobTitle}</StyledErrors>}
+            <StyledField type='textarea' name='bonus_skills' placeholder='Bonus Skills' />
+            {touched.bonus_skills && errors.bonus_skills && <StyledErrors className='error'>{errors.bonus_skills}</StyledErrors>}
             
-            <StyledField type='textarea' name='skills' placeholder='Skills' />
-            {touched.skills && errors.skills && <StyledErrors className='error'>{errors.skills}</StyledErrors>}
-
             <StyledButton type='submit'>Submit</StyledButton>
         </StyledForm>
     )
@@ -94,29 +87,25 @@ const CreateProfile = ({ errors, touched, status }) => {
 export default withFormik({
     mapPropsToValues: (values) => {
         return {
-            name: values.name || '',
-            email: values.email || '',
-            phoneNumber: values.phoneNumber || '',
-            jobTitle: values.jobTitle || '',
-            skills: values.skills || ''
+            company_name: values.company_name || '',
+            about_us: values.about_us || ''
         }
     },
 
     validationSchema: yup.object().shape({
-        name: yup.string().required('Name is required'),
-        email: yup.string().email().required('Email is required'),
-        phoneNumber: yup.number().min(9).required('Phone number is required'),
-        jobTitle: yup.string().required('Current job title is required'),
-        skills: yup.string().required('Skills are required')
+        company_name: yup.string().required('Company name is required'),
+        about_us: yup.string().required('Description is required')
     }),
 
     handleSubmit: (values, { setStatus }) => {
-        axios.post('', values)
+        console.log(values);
+        axios.post('https://droomapi.herokuapp.com/api/sample/employers', values)
             .then((res) => {
                 setStatus(res.data)
+                console.log(res)
             })
             .catch((err) => {
                 console.log('Error:', err)
             })
     }
-})(CreateProfile)
+})(CreateJobListing)

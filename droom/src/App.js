@@ -1,13 +1,17 @@
 import React from 'react';
 import './App.css';
-import CreateProfile from './CreateProfile';
+import CreateProfile from './components/CreateProfile';
 import SignUp from './components/SignUp';
+import CreateCompanyProfile from './components/CreateCompanyProfile';
+import CreateJobListing from './components/CreateJobListing';
 
 function App() {
   return (
     <div className='App'>
-      <CreateProfile />
       <SignUp />
+      <CreateProfile />
+      <CreateCompanyProfile />
+      <CreateJobListing />
     </div>
   );
 }
