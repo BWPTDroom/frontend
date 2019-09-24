@@ -15,7 +15,7 @@ const StyledForm = styled(Form)`
     box-sizing: border-box;
     box-shadow: 5px 10px 15px rgb(95, 99, 102, 0.3);
 `
-
+ 
 const Title = styled.h1`
     font-size: 1.5rem;
     margin-top: 100px;
