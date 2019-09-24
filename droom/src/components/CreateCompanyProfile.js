@@ -4,21 +4,21 @@ import * as yup from 'yup';
 import axios from 'axios';
 import styled from 'styled-components';
 
-const StyledForm = styled(Form)`
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    align-items: center;
-    margin: 18px auto;
-    padding: 30px;
-    width: 380px;
-    height: auto;
-    max-width: 100%;
-    background-image: linear-gradient(75deg, #17242A, #327A77);
-    color: #FEFFFF;
-    box-shadow: 5px 10px 15px rgb(95, 99, 102, 0.3);
-    font-family: Roboto;
-`;
+// const StyledForm = styled(Form)`
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: left;
+//     align-items: center;
+//     margin: 18px auto;
+//     padding: 30px;
+//     width: 380px;
+//     height: auto;
+//     max-width: 100%;
+//     background-image: linear-gradient(75deg, #17242A, #327A77);
+//     color: #FEFFFF;
+//     box-shadow: 5px 10px 15px rgb(95, 99, 102, 0.3);
+//     font-family: Roboto;
+// `;
 
 const StyledErrors = styled.p`
     color: #DEF2F1;
@@ -29,34 +29,34 @@ const StyledErrors = styled.p`
     align-self: flex-start;
 `;
 
-const Title = styled.label`
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin-top: 60px;
-    font-family: Maven Pro;
-`;
+// const Title = styled.label`
+//     font-size: 1.8rem;
+//     font-weight: bold;
+//     margin-top: 60px;
+//     font-family: Maven Pro;
+// `;
 
-const StyledField = styled(Field)`
-    width: 318px;
-    height: 50px;
-    margin: 18px 0;
-    border-radius: 2px;
-    border: 1px solid #DEF2F1;
-    font-size: 16px;
-`;
+// const StyledField = styled(Field)`
+//     width: 318px;
+//     height: 50px;
+//     margin: 18px 0;
+//     border-radius: 2px;
+//     border: 1px solid #DEF2F1;
+//     font-size: 16px;
+// `;
 
-const StyledButton = styled.button`
-    height: 50px;
-    width: 318px;
-    margin: 30px 0;
-    border-radius: 2px;
-    background-color: #17242A;
-    border: 1px solid #327a77;
-    color: #FEFFFF;
-    font-family: Maven Pro;
-    font-size: 16px;
-    text-transform: uppercase;
-`;
+// const StyledButton = styled.button`
+//     height: 50px;
+//     width: 318px;
+//     margin: 30px 0;
+//     border-radius: 2px;
+//     background-color: #17242A;
+//     border: 1px solid #327a77;
+//     color: #FEFFFF;
+//     font-family: Maven Pro;
+//     font-size: 16px;
+//     text-transform: uppercase;
+// `;
 
 const CreateCompanyProfile = ({ errors, touched, status }) => {
     const [companies, setNewCompany] = useState([]);
@@ -68,17 +68,17 @@ const CreateCompanyProfile = ({ errors, touched, status }) => {
     }, [status])
 
     return (
-        <StyledForm className='setCompanyProfile'>
-            <Title className='title'>Set Up Company Profile</Title>
+        <div className='forms'>
+            <h1 className='title'>Set Up Company Profile</h1>
             
-            <StyledField type='text' name='company_name' placeholder='Company Name' />
+            <input type='text' name='company_name' placeholder='Company Name' />
             {touched.company_name && errors.company_name && <StyledErrors className='error'>{errors.company_name}</StyledErrors>}
             
-            <StyledField type='textarea' name='about_us' placeholder='About Us' />
+            <input type='textarea' name='about_us' placeholder='About Us' />
             {touched.about_us && errors.about_us && <StyledErrors className='error'>{errors.about_us}</StyledErrors>}
             
-            <StyledButton type='submit'>Submit</StyledButton>
-        </StyledForm>
+            <button type='submit'>Submit</button>
+        </div>
     )
 }
 
