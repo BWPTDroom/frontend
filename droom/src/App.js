@@ -8,6 +8,7 @@ import CreateCompanyProfile from './components/CreateCompanyProfile';
 import CreateJobListing from './components/CreateJobListing';
 import Nav from './components/Nav';
 import JobCard from './components/JobCard';
+import LogIn from './components/LogIn';
 
 function App() {
   const [listings, setNewListing] = useState([{position: 'Full Stack Developer', req_skills: 'HTML, CSS, JS', bonus_skills: 'Teamwork'}]);
@@ -22,6 +23,7 @@ function App() {
       <Route path='/employeeprofile' component={CreateProfile} />
       <Route path='/companyprofile' component={CreateCompanyProfile} />
       <Route path='/newjob' component={CreateJobListing} /> */}
+      <LogIn />
       <Route render={(props) => (
         <JobCard {...props} listings={listings} setNewListing={setNewListing} />
       )} />
