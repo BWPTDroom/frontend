@@ -6,7 +6,6 @@ import CreateProfile from './components/CreateProfile';
 import SignUp from './components/SignUp';
 import CreateCompanyProfile from './components/CreateCompanyProfile';
 // import CreateJobListing from './components/CreateJobListing';
-import Nav from './components/Nav';
 import JobCard from './components/JobCard';
 import LogIn from './components/LogIn';
 
@@ -20,7 +19,7 @@ function App() {
 
   return (
     <div className='App'>
-      <Route path='/' component={Nav} />
+      <Route path='/' component={LogIn} />
       <Route exact path='/' render={props => <SignUp {...props} members={members} setMembers={setMembers} />} />
       <Route path='/employeeprofile' component={CreateProfile} />
       <Route path='/companyprofile' component={CreateCompanyProfile} />
