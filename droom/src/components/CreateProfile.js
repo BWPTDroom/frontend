@@ -59,7 +59,6 @@ const StyledButton = styled.button`
 `;
 
 const CreateProfile = ({ errors, touched, status }) => {
-    const [users, setNewUser] = useState([]);
 
     useEffect(() => {
         if(status) {

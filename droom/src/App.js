@@ -8,6 +8,11 @@ import Nav from './components/Nav';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 function App() {
+  const [listings, setNewListing] = useState([{position: 'Full Stack Developer', req_skills: 'HTML, CSS, JS', bonus_skills: 'Teamwork'}]);
+  const [companies, setNewCompany] = useState([]);
+  const [users, setNewUser] = useState([]);
+  const [members, setMembers] = useState([]);
+
   return (
     <div className='App'>
       <Route path='/' component={Nav} />

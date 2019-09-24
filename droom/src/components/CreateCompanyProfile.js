@@ -59,7 +59,6 @@ const StyledButton = styled.button`
 `;
 
 const CreateCompanyProfile = ({ errors, touched, status }) => {
-    const [companies, setNewCompany] = useState([]);
 
     useEffect(() => {
         if(status) {
