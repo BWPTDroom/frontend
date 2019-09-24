@@ -60,11 +60,11 @@ const StyledButton = styled.button`
 
 const CreateProfile = ({ errors, touched, status }) => {
 
-    useEffect(() => {
-        if(status) {
-            setNewUser([...users, status])
-        }
-    }, [status])
+    // useEffect(() => {
+    //     if(status) {
+    //         setNewUser([...users, status])
+    //     }
+    // }, [status])
 
     return (
         <StyledForm className='setProfile'>

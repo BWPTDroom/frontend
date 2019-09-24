@@ -82,13 +82,13 @@ const StyledP = styled.p`
     padding: 0;
 `
 
-const SignUp = ({ errors, touched, status }) => {
+const SignUp = ({ errors, touched, status, }) => {
 
-       useEffect(() => {
-              if (status) {
-                     setMembers([...members, status])
-              }
-       }, [status])
+       // useEffect(() => {
+       //        if (status) {
+       //               setMembers([...members, status])
+       //        }
+       // }, [status])
 
        return (
        <>
@@ -107,8 +107,7 @@ const SignUp = ({ errors, touched, status }) => {
                             /> 
                      {touched.role && errors.role && <StyledP className="error">{errors.role}</StyledP>}
                      <StyledField component="select" name="role" 
-                            type="select"
-                            value={members.role}  
+                            type="select" 
                             >
                                 <StyledOption value="">Pick a role:</StyledOption>
                                 <StyledOption value="employee">Employee</StyledOption>
@@ -135,11 +134,15 @@ export default withFormik({
               password: yup.string().required("Password is required."),
               role: yup.string().required("Role is required."),
        }),
-       handleSubmit: (values, {setStatus}) => {
+       handleSubmit: (values, {setStatus, props}) => {
+              console.log(values)
               axios.post('https://reqres.in/api/users', values)
               .then(response => {
                      setStatus(response.data)
                      console.log("res", response.data)
+                     props.setMembers(response.data)
+                     response.data.role === 'employee' ? props.history.push('/employeeprofile') : props.history.push('/companyprofile')
+                     // props.history.push('/')
               })
               .catch(err => {
                      console.log("Error:", err)
