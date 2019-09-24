@@ -8,6 +8,7 @@ import CreateCompanyProfile from './components/CreateCompanyProfile';
 // import CreateJobListing from './components/CreateJobListing';
 import Nav from './components/Nav';
 import JobCard from './components/JobCard';
+import LogIn from './components/LogIn';
 
 function App() {
 
@@ -23,7 +24,9 @@ function App() {
       <Route exact path='/' render={props => <SignUp {...props} members={members} setMembers={setMembers} />} />
       <Route path='/employeeprofile' component={CreateProfile} />
       <Route path='/companyprofile' component={CreateCompanyProfile} />
+
       {/* <Route path='/newjob' component={CreateJobListing} /> */}
+
       <Route render={(props) => (
       <JobCard {...props} listings={listings} setNewListing={setNewListing} />
       )} />
