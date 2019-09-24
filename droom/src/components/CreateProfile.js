@@ -61,12 +61,6 @@ const StyledButton = styled.button`
 const CreateProfile = ({ errors, touched, status }) => {
 
 
-    // useEffect(() => {
-    //     if(status) {
-    //         setNewUser([...users, status])
-    //     }
-    // }, [status])
-
 
     return (
         <StyledForm className='setProfile'>
@@ -117,7 +111,8 @@ export default withFormik({
     }),
 
     handleSubmit: (values, { setStatus }) => {
-        console.log(values);
+
+
         axios.post('https://droomapi.herokuapp.com/api/sample/prospects', values)
             .then((res) => {
                 setStatus(res.data)
@@ -127,4 +122,6 @@ export default withFormik({
                 console.log('Error:', err)
             })
     }
+
 })(CreateProfile)
+
