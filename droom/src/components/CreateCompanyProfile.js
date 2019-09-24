@@ -96,12 +96,12 @@ export default withFormik({
         about_us: yup.string().required('Description is required')
     }),
 
-    handleSubmit: (values, { setStatus }) => {
-        
+    handleSubmit: (values, { setStatus, props }) => {
         axios.post('https://droomapi.herokuapp.com/api/sample/employers', values)
             .then((res) => {
                 setStatus(res.data)
-                console.log(res.data)
+                props.setNewCompany(res.data)
+                props.history.push('/newjob')
             })
             .catch((err) => {
                 console.log('Error:', err)

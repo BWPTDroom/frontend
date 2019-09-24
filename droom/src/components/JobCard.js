@@ -7,6 +7,7 @@ function JobCard(props) {
             .get('https://droomapi.herokuapp.com/api/sample/postings')
             .then((res) => {
                 console.log(res)
+                props.setNewListing(res.data)
             })
             .catch((err) => {
                 console.log(`Error: ${err}`)

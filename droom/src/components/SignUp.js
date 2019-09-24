@@ -83,7 +83,7 @@ const StyledP = styled.p`
 `
 
 
-const SignUp = ({ errors, touched, status, }) => {
+const SignUp = ({ errors, touched, status }) => {
 
        
 
@@ -136,7 +136,7 @@ export default withFormik({
               axios.post('https://droomapi.herokuapp.com/api/sample/register', values)
               .then(response => {
                      setStatus(response.data)
-                     console.log("res", response.data)
+                     // console.log("res", response.data)
                      props.setMembers(response.data)
                      values.role === 'employee' ? props.history.push('/employeeprofile') : props.history.push('/companyprofile')
                      // props.history.push('/')
