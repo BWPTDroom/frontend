@@ -105,7 +105,7 @@ const SignUp = ({ errors, touched, status, }) => {
                      {touched.role && errors.role && <StyledP className="error">{errors.role}</StyledP>}
                      <select component="select" name="role" 
                             type="select"
-                            value={members.role}  
+                            
                             >
                                 <option value="">Pick a role:</option>
                                 <option value="employee">Employee</option>
