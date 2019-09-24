@@ -84,8 +84,6 @@ const StyledP = styled.p`
 
 const SignUp = ({ errors, touched, status }) => {
 
-       const [members, setMembers] = useState([]);
-
        useEffect(() => {
               if (status) {
                      setMembers([...members, status])

@@ -59,7 +59,6 @@ const StyledButton = styled.button`
 `;
 
 const CreateJobListing = ({ errors, touched, status }) => {
-    const [listings, setNewListing] = useState([{position: 'Full Stack Developer', req_skills: 'HTML, CSS, JS', bonus_skills: 'Teamwork'}]);
 
     useEffect(() => {
         if(status) {
