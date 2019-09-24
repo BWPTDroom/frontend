@@ -60,11 +60,13 @@
 
 // const CreateCompanyProfile = ({ errors, touched, status }) => {
 
-//     // useEffect(() => {
-//     //     if(status) {
-//     //         setNewCompany([...companies, status])
-//     //     }
-//     // }, [status])
+
+    // useEffect(() => {
+    //     if(status) {
+    //         setNewCompany([...companies, status])
+    //     }
+    // }, [status])
+
 
 //     return (
 //         <StyledForm className='setCompanyProfile'>

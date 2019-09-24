@@ -82,67 +82,72 @@
 //     padding: 0;
 // `
 
-// const SignUp = ({ errors, touched, status }) => {
 
-//        useEffect(() => {
-//               if (status) {
-//                      setMembers([...members, status])
-//               }
-//        }, [status])
+const SignUp = ({ errors, touched, status, }) => {
 
-//        return (
-//        <>
-//               <StyledForm className="signup-form">
-//                     <Title>Droom</Title>
-//                     <SubTitle>Join the community</SubTitle>
-//                      {touched.username && errors.username && <StyledP className="error">{errors.username}</StyledP>}
-//                      <StyledField name="username" 
-//                             type="text" 
-//                             placeholder="Username" 
-//                             /> 
-//                      {touched.password && errors.password && <StyledP className="error">{errors.password}</StyledP>}
-//                      <StyledField name="password" 
-//                             type="password" 
-//                             placeholder="Password" 
-//                             /> 
-//                      {touched.role && errors.role && <StyledP className="error">{errors.role}</StyledP>}
-//                      <StyledField component="select" name="role" 
-//                             type="select"
-//                             value={members.role}  
-//                             >
-//                                 <StyledOption value="">Pick a role:</StyledOption>
-//                                 <StyledOption value="employee">Employee</StyledOption>
-//                                 <StyledOption value="employer">Employer</StyledOption>
-//                      </StyledField> 
-//                      <StyledButton type="submit">
-//                             Submit
-//                      </StyledButton>
-//               </StyledForm>
-//        </>
-//        )
-// }
+       // useEffect(() => {
+       //        if (status) {
+       //               setMembers([...members, status])
+       //        }
+       // }, [status])
 
-// export default withFormik({
-//        mapPropsToValues: (values) => {
-//               return {
-//                      username: values.username || '',
-//                      password: values.password || '',
-//                      role: values.role || '',
-//               }
-//        },
-//        validationSchema: yup.object().shape({
-//               username: yup.string().required("Username is required."),
-//               password: yup.string().required("Password is required."),
-//               role: yup.string().required("Role is required."),
-//        }),
-//        handleSubmit: (values, {setStatus}) => {
-//               axios.post('https://reqres.in/api/users', values)
-//               .then(response => {
-//                      setStatus(response.data)
-//                      console.log("res", response.data)
-//               })
-//               .catch(err => {
-//                      console.log("Error:", err)
-//               })
-//        }
-// })(SignUp);
+       return (
+       <>
+              <StyledForm className="signup-form">
+                    <Title>Droom</Title>
+                    <SubTitle>Join the community</SubTitle>
+                     {touched.username && errors.username && <StyledP className="error">{errors.username}</StyledP>}
+                     <StyledField name="username" 
+                            type="text" 
+                            placeholder="Username" 
+                            /> 
+                     {touched.password && errors.password && <StyledP className="error">{errors.password}</StyledP>}
+                     <StyledField name="password" 
+                            type="password" 
+                            placeholder="Password" 
+                            /> 
+                     {touched.role && errors.role && <StyledP className="error">{errors.role}</StyledP>}
+                     <StyledField component="select" name="role" 
+                            type="select" 
+                            >
+                                <StyledOption value="">Pick a role:</StyledOption>
+                                <StyledOption value="employee">Employee</StyledOption>
+                                <StyledOption value="employer">Employer</StyledOption>
+                     </StyledField> 
+                     <StyledButton type="submit">
+                            Submit
+                     </StyledButton>
+              </StyledForm>
+       </>
+       )
+}
+
+export default withFormik({
+       mapPropsToValues: (values) => {
+              return {
+                     username: values.username || '',
+                     password: values.password || '',
+                     role: values.role || '',
+              }
+       },
+       validationSchema: yup.object().shape({
+              username: yup.string().required("Username is required."),
+              password: yup.string().required("Password is required."),
+              role: yup.string().required("Role is required."),
+       }),
+       handleSubmit: (values, {setStatus, props}) => {
+              console.log(values)
+              axios.post('https://reqres.in/api/users', values)
+              .then(response => {
+                     setStatus(response.data)
+                     console.log("res", response.data)
+                     props.setMembers(response.data)
+                     response.data.role === 'employee' ? props.history.push('/employeeprofile') : props.history.push('/companyprofile')
+                     // props.history.push('/')
+              })
+              .catch(err => {
+                     console.log("Error:", err)
+              })
+       }
+})(SignUp);
+
