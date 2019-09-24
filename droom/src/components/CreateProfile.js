@@ -82,49 +82,6 @@ const CreateProfile = ({ errors, touched, status }) => {
             <StyledField type='text' name='desired_position' placeholder='Desired Position' />
             {touched.desired_position && errors.desired_position && <StyledErrors className='error'>{errors.desired_position}</StyledErrors>}
             
-<<<<<<< HEAD
-//             <StyledField type='textarea' name='skills' placeholder='Skills' />
-//             {touched.skills && errors.skills && <StyledErrors className='error'>{errors.skills}</StyledErrors>}
-
-//             <StyledButton type='submit'>Submit</StyledButton>
-//         </StyledForm>
-//     )
-// }
-
-// export default withFormik({
-//     mapPropsToValues: (values) => {
-//         return {
-//             name: values.name || '',
-//             email: values.email || '',
-//             phone_number: values.phone_number || '',
-//             job_title: values.job_title || '',
-//             desired_position: values.desired_position || '',
-//             skills: values.skills || ''
-//         }
-//     },
-
-//     validationSchema: yup.object().shape({
-//         name: yup.string().required('Name is required'),
-//         email: yup.string().email().required('Email is required'),
-//         phone_number: yup.number().min(9).required('Phone number is required'),
-//         job_title: yup.string().required('Current job title is required'),
-//         desired_position: yup.string().required('Desired position is required'),
-//         skills: yup.string().required('Skills are required')
-//     }),
-
-//     handleSubmit: (values, { setStatus }) => {
-//         console.log(values);
-//         axios.post('https://droomapi.herokuapp.com/api/sample/prospects', values)
-//             .then((res) => {
-//                 setStatus(res.data)
-//                 console.log(res)
-//             })
-//             .catch((err) => {
-//                 console.log('Error:', err)
-//             })
-//     }
-// })(CreateProfile)
-=======
             <StyledField type='textarea' name='skills' placeholder='Skills' />
             {touched.skills && errors.skills && <StyledErrors className='error'>{errors.skills}</StyledErrors>}
 
@@ -166,4 +123,3 @@ export default withFormik({
             })
     }
 })(CreateProfile)
->>>>>>> e2f90fb66dd72d89d2ae7755b11351cc091f5298
