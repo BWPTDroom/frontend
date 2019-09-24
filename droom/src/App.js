@@ -27,8 +27,8 @@ function App() {
 
       {/* <Route path='/newjob' component={CreateJobListing} /> */}
 
-      <Route render={(props) => (
-      <JobCard {...props} listings={listings} setNewListing={setNewListing} />
+      <Route path={'/joblistings'} render={(props) => (
+        <JobCard {...props} listings={listings} setNewListing={setNewListing} />
       )} />
 
     </div>
