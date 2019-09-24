@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { withFormik, Form, Field } from 'formik';
-import * as yup from 'yup';
-import axios from 'axios';
-import styled from 'styled-components';
+// import React, { useState, useEffect } from 'react';
+// import { withFormik, Form, Field } from 'formik';
+// import * as yup from 'yup';
+// import axios from 'axios';
+// import styled from 'styled-components';
 
 
 // const StyledForm = styled(Form)`
@@ -74,23 +74,22 @@ import styled from 'styled-components';
 //     font-family: 'Maven Pro';
 //     font-size: 0.8rem;
 // `
-const StyledP = styled.p`
-    color: rgb(101,204,184, 1);
-    font-family: 'Roboto';
-    font-size: 0.7rem;
-    margin: 0;
-    padding: 0;
-`
+// const StyledP = styled.p`
+//     color: rgb(101,204,184, 1);
+//     font-family: 'Roboto';
+//     font-size: 0.7rem;
+//     margin: 0;
+//     padding: 0;
+// `
 
-const SignUp = ({ errors, touched, status }) => {
 
-       const [members, setMembers] = useState([]);
+const SignUp = ({ errors, touched, status, }) => {
 
-       useEffect(() => {
-              if (status) {
-                     setMembers([...members, status])
-              }
-       }, [status])
+       // useEffect(() => {
+       //        if (status) {
+       //               setMembers([...members, status])
+       //        }
+       // }, [status])
 
        return (
        <>
@@ -137,14 +136,19 @@ export default withFormik({
               password: yup.string().required("Password is required."),
               role: yup.string().required("Role is required."),
        }),
-       handleSubmit: (values, {setStatus}) => {
+       handleSubmit: (values, {setStatus, props}) => {
+              console.log(values)
               axios.post('https://reqres.in/api/users', values)
               .then(response => {
                      setStatus(response.data)
                      console.log("res", response.data)
+                     props.setMembers(response.data)
+                     response.data.role === 'employee' ? props.history.push('/employeeprofile') : props.history.push('/companyprofile')
+                     // props.history.push('/')
               })
               .catch(err => {
                      console.log("Error:", err)
               })
        }
 })(SignUp);
+

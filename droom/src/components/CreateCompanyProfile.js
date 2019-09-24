@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { withFormik, Form, Field } from 'formik';
-import * as yup from 'yup';
-import axios from 'axios';
-import styled from 'styled-components';
+// import React, { useState, useEffect } from 'react';
+// import { withFormik, Form, Field } from 'formik';
+// import * as yup from 'yup';
+// import axios from 'axios';
+// import styled from 'styled-components';
 
 // const StyledForm = styled(Form)`
 //     display: flex;
@@ -20,14 +20,14 @@ import styled from 'styled-components';
 //     font-family: Roboto;
 // `;
 
-const StyledErrors = styled.p`
-    color: #DEF2F1;
-    font-weight: light;
-    margin: 0;
-    margin-left: 32px;
-    padding: 0;
-    align-self: flex-start;
-`;
+// const StyledErrors = styled.p`
+//     color: #DEF2F1;
+//     font-weight: light;
+//     margin: 0;
+//     margin-left: 32px;
+//     padding: 0;
+//     align-self: flex-start;
+// `;
 
 // const Title = styled.label`
 //     font-size: 1.8rem;
@@ -58,52 +58,53 @@ const StyledErrors = styled.p`
 //     text-transform: uppercase;
 // `;
 
-const CreateCompanyProfile = ({ errors, touched, status }) => {
-    const [companies, setNewCompany] = useState([]);
+// const CreateCompanyProfile = ({ errors, touched, status }) => {
 
-    useEffect(() => {
-        if(status) {
-            setNewCompany([...companies, status])
-        }
-    }, [status])
 
-    return (
-        <div className='forms'>
-            <h1 className='title'>Set Up Company Profile</h1>
+    // useEffect(() => {
+    //     if(status) {
+    //         setNewCompany([...companies, status])
+    //     }
+    // }, [status])
+
+
+//     return (
+//         <StyledForm className='setCompanyProfile'>
+//             <Title className='title'>Set Up Company Profile</Title>
             
-            <input type='text' name='company_name' placeholder='Company Name' />
-            {touched.company_name && errors.company_name && <StyledErrors className='error'>{errors.company_name}</StyledErrors>}
+//             <StyledField type='text' name='company_name' placeholder='Company Name' />
+//             {touched.company_name && errors.company_name && <StyledErrors className='error'>{errors.company_name}</StyledErrors>}
             
-            <input type='textarea' name='about_us' placeholder='About Us' />
-            {touched.about_us && errors.about_us && <StyledErrors className='error'>{errors.about_us}</StyledErrors>}
+//             <StyledField type='textarea' name='about_us' placeholder='About Us' />
+//             {touched.about_us && errors.about_us && <StyledErrors className='error'>{errors.about_us}</StyledErrors>}
             
-            <button type='submit'>Submit</button>
-        </div>
-    )
-}
+//             <StyledButton type='submit'>Submit</StyledButton>
+//         </StyledForm>
+//     )
+// }
 
-export default withFormik({
-    mapPropsToValues: (values) => {
-        return {
-            company_name: values.company_name || '',
-            about_us: values.about_us || ''
-        }
-    },
+// export default withFormik({
+//     mapPropsToValues: (values) => {
+//         return {
+//             company_name: values.company_name || '',
+//             about_us: values.about_us || ''
+//         }
+//     },
 
-    validationSchema: yup.object().shape({
-        company_name: yup.string().required('Company name is required'),
-        about_us: yup.string().required('Description is required')
-    }),
+//     validationSchema: yup.object().shape({
+//         company_name: yup.string().required('Company name is required'),
+//         about_us: yup.string().required('Description is required')
+//     }),
 
-    handleSubmit: (values, { setStatus }) => {
-        console.log(values);
-        axios.post('https://droomapi.herokuapp.com/api/sample/employers', values)
-            .then((res) => {
-                setStatus(res.data)
-                console.log(res)
-            })
-            .catch((err) => {
-                console.log('Error:', err)
-            })
-    }
-})(CreateCompanyProfile)
+//     handleSubmit: (values, { setStatus }) => {
+//         console.log(values);
+//         axios.post('https://droomapi.herokuapp.com/api/sample/employers', values)
+//             .then((res) => {
+//                 setStatus(res.data)
+//                 console.log(res)
+//             })
+//             .catch((err) => {
+//                 console.log('Error:', err)
+//             })
+//     }
+// })(CreateCompanyProfile)

@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { withFormik, Form, Field } from 'formik';
-import * as yup from 'yup';
-import axios from 'axios';
-import styled from 'styled-components';
+// import React, { useState, useEffect } from 'react';
+// import { withFormik, Form, Field } from 'formik';
+// import * as yup from 'yup';
+// import axios from 'axios';
+// import styled from 'styled-components';
 
 // const StyledForm = styled(Form)`
 //     display: flex;
@@ -20,14 +20,14 @@ import styled from 'styled-components';
 //     font-family: Roboto;
 // `;
 
-const StyledErrors = styled.p`
-    color: #DEF2F1;
-    font-weight: light;
-    margin: 0;
-    margin-left: 32px;
-    padding: 0;
-    align-self: flex-start;
-`;
+// const StyledErrors = styled.p`
+//     color: #DEF2F1;
+//     font-weight: light;
+//     margin: 0;
+//     margin-left: 32px;
+//     padding: 0;
+//     align-self: flex-start;
+// `;
 
 // const Title = styled.label`
 //     font-size: 1.8rem;
@@ -58,64 +58,56 @@ const StyledErrors = styled.p`
 //     text-transform: uppercase;
 // `;
 
-const CreateJobListing = ({ errors, touched, status }) => {
-    const [listings, setNewListing] = useState([{position: 'Full Stack Developer', req_skills: 'HTML, CSS, JS', bonus_skills: 'Teamwork'}]);
+// const CreateJobListing = ({ errors, touched, status }) => {
 
-    useEffect(() => {
-        if(status) {
-            setNewListing([...listings, status])
-        }
-    }, [status])
-    return (
-        <div className='forms'>
-            <h1 className='title'>Create New Job</h1>
+//     // useEffect(() => {
+//     //     if(status) {
+//     //         setNewListing([...listings, status])
+//     //     }
+//     // }, [status])
+//     return (
+//         <StyledForm className='createJobListing'>
+//             <Title className='title'>Create New Job</Title>
             
-            <input type='text' name='position' placeholder='Position Title' />
-            {touched.position && errors.position && <StyledErrors className='error'>{errors.position}</StyledErrors>}
+//             <StyledField type='text' name='position' placeholder='Position Title' />
+//             {touched.position && errors.position && <StyledErrors className='error'>{errors.position}</StyledErrors>}
             
-            <input type='textarea' name='req_skills' placeholder='Required Skills' />
-            {touched.req_skills && errors.req_skills && <StyledErrors className='error'>{errors.req_skills}</StyledErrors>}
+//             <StyledField type='textarea' name='req_skills' placeholder='Required Skills' />
+//             {touched.req_skills && errors.req_skills && <StyledErrors className='error'>{errors.req_skills}</StyledErrors>}
 
-            <input type='textarea' name='bonus_skills' placeholder='Bonus Skills' />
-            {touched.bonus_skills && errors.bonus_skills && <StyledErrors className='error'>{errors.bonus_skills}</StyledErrors>}
+//             <StyledField type='textarea' name='bonus_skills' placeholder='Bonus Skills' />
+//             {touched.bonus_skills && errors.bonus_skills && <StyledErrors className='error'>{errors.bonus_skills}</StyledErrors>}
             
-            <button type='submit'>Submit</button>
+//             <StyledButton type='submit'>Submit</StyledButton>
 
-            {listings.map((job) => (
-                <div className='jobCard'>
-                    <p>Position: {job.position}</p>
-                    <p>Required Skills: {job.req_skills}</p>
-                    <p>Bonus Skills: {job.bonus_skills}</p>
-                </div>
-            ))}
-        </div>
-    )
-}
+//         </StyledForm>
+//     )
+// }
 
-export default withFormik({
-    mapPropsToValues: (values) => {
-        return {
-            position: values.position || '',
-            req_skills: values.req_skills || '',
-            bonus_skills: values.bonus_skills || ''
-        }
-    },
+// export default withFormik({
+//     mapPropsToValues: (values) => {
+//         return {
+//             position: values.position || '',
+//             req_skills: values.req_skills || '',
+//             bonus_skills: values.bonus_skills || ''
+//         }
+//     },
 
-    validationSchema: yup.object().shape({
-        position: yup.string().required('Position title is required'),
-        req_skills: yup.string().required('Skills are required'),
-        bonus_skills: yup.string()
-    }),
+//     validationSchema: yup.object().shape({
+//         position: yup.string().required('Position title is required'),
+//         req_skills: yup.string().required('Skills are required'),
+//         bonus_skills: yup.string()
+//     }),
 
-    handleSubmit: (values, { setStatus }) => {
-        console.log(values);
-        axios.post('https://droomapi.herokuapp.com/api/sample/employers', values)
-            .then((res) => {
-                setStatus(res.data)
-                console.log(res)
-            })
-            .catch((err) => {
-                console.log('Error:', err)
-            })
-    }
-})(CreateJobListing)
+//     handleSubmit: (values, { setStatus }) => {
+//         console.log(values);
+//         axios.post('https://droomapi.herokuapp.com/api/sample/employers', values)
+//             .then((res) => {
+//                 setStatus(res.data)
+//                 console.log(res)
+//             })
+//             .catch((err) => {
+//                 console.log('Error:', err)
+//             })
+//     }
+// })(CreateJobListing)
