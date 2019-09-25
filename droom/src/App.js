@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import './App.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import './css/index.css';
+import { Route } from 'react-router-dom';
 
 import CreateProfile from './components/CreateProfile';
 import SignUp from './components/SignUp';
 import CreateCompanyProfile from './components/CreateCompanyProfile';
+
 import CreateJobListing from './components/CreateJobListing';
-import Nav from './components/Nav';
+
+
 import JobCard from './components/JobCard';
 import LogIn from './components/LogIn';
 
@@ -20,11 +22,10 @@ function App() {
 
   return (
     <div className='App'>
-      <Route path='/' component={Nav} />
       <Route exact path='/' render={props => <SignUp {...props} members={members} setMembers={setMembers} />} />
       <Route path='/employeeprofile' component={CreateProfile} />
       <Route path='/companyprofile' render={props => <CreateCompanyProfile {...props} setNewCompany={setNewCompany} /> } />
-
+      <Route path='/login' render={props => <LogIn {...props}  />} />
       <Route path='/newjob' render={props => <CreateJobListing {...props} companies={companies} /> } />
 
       <Route path={'/joblistings'} render={(props) => (
