@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { withFormik, Form, Field } from 'formik';
 import * as yup from 'yup';
 import axios from 'axios';
@@ -63,17 +63,17 @@ const CreateCompanyProfile = ({ errors, touched, status }) => {
 
 
     return (
-        <div className='forms'>
+        <Form className='forms'>
             <h1 className='title'>Set Up Company Profile</h1>
             
-            <input type='text' name='company_name' placeholder='Company Name' />
+            <Field type='text' name='company_name' placeholder='Company Name' />
             {touched.company_name && errors.company_name && <StyledErrors className='error'>{errors.company_name}</StyledErrors>}
             
-            <input type='textarea' name='about_us' placeholder='About Us' />
+            <Field type='textarea' name='about_us' placeholder='About Us' />
             {touched.about_us && errors.about_us && <StyledErrors className='error'>{errors.about_us}</StyledErrors>}
             
             <button type='submit'>Submit</button>
-        </div>
+        </Form>
     )
 }
 
@@ -90,12 +90,12 @@ export default withFormik({
         about_us: yup.string().required('Description is required')
     }),
 
-    handleSubmit: (values, { setStatus }) => {
-        
+    handleSubmit: (values, { setStatus, props }) => {
         axios.post('https://droomapi.herokuapp.com/api/sample/employers', values)
             .then((res) => {
                 setStatus(res.data)
-                console.log(res.data)
+                props.setNewCompany(res.data)
+                props.history.push('/newjob')
             })
             .catch((err) => {
                 console.log('Error:', err)
