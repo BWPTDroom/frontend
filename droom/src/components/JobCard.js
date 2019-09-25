@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
+import { FaRegHeart, FaRegTimesCircle } from "react-icons/fa";
 
 function JobCard(props) {
     useEffect(() => {
@@ -19,6 +20,15 @@ function JobCard(props) {
                 <p>Position: {job.position}</p>
                 <p>Required Skills: {job.req_skills}</p>
                 <p>Bonus Skills: {job.bonus_skills}</p>
+
+                <div className='reaction'>
+                    <button className='like'>
+                        <FaRegHeart />
+                    </button>
+                    <button className='dislike'>
+                        <FaRegTimesCircle />
+                    </button>
+                </div>
             </div>
     )))
 }
