@@ -97,11 +97,12 @@ export default withFormik({
     }),
 
     handleSubmit: (values, { setStatus }) => {
-        console.log(values);
+
+        
         axios.post('https://droomapi.herokuapp.com/api/sample/employers', values)
             .then((res) => {
                 setStatus(res.data)
-                console.log(res)
+                console.log(res.data)
             })
             .catch((err) => {
                 console.log('Error:', err)

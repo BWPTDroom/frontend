@@ -1,0 +1,204 @@
+.input-field {
+  width: 318px;
+  height: 50px;
+  margin: 18px 0;
+  border-radius: 2px;
+  border: 1px solid #DEF2F1;
+  font-size: 16px;
+}
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.forms {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
+  margin: 18px auto;
+  padding: 30px;
+  width: 380px;
+  height: auto;
+  max-width: 100%;
+  background-image: linear-gradient(75deg, #17242A, #327A77);
+  color: #FEFFFF;
+  box-shadow: 5px 10px 15px #5f6366;
+  font-family: Roboto;
+}
+.forms .title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-top: 60px;
+  font-family: Maven Pro;
+}
+.forms input {
+  width: 318px;
+  height: 50px;
+  margin: 18px 0;
+  border-radius: 2px;
+  border: 1px solid #DEF2F1;
+  font-size: 16px;
+}
+.forms button {
+  height: 50px;
+  width: 318px;
+  margin: 30px 0;
+  border-radius: 2px;
+  background-color: #17242A;
+  border: 1px solid #327a77;
+  color: #FEFFFF;
+  font-family: Maven Pro;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+.forms h2 {
+  font-size: 0.9rem;
+  margin-bottom: 50px;
+  color: #65ccb8;
+  font-weight: lighter;
+  font-family: 'Roboto';
+  text-align: center;
+}
+.forms select {
+  width: 318px;
+  height: 50px;
+  margin: 18px 0;
+  border-radius: 2px;
+  border: 1px solid #DEF2F1;
+  font-size: 16px;
+}
+.forms select option {
+  width: 318px;
+  margin: 18px 0px;
+  border-radius: 2px;
+  border: 1px solid lightgrey;
+  padding: 15px;
+  box-sizing: border-box;
+  background-color: #f2f2f2;
+  font-family: 'Roboto';
+  color: #182628;
+}

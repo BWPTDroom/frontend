@@ -85,39 +85,36 @@ const StyledP = styled.p`
 
 const SignUp = ({ errors, touched, status, }) => {
 
-       // useEffect(() => {
-       //        if (status) {
-       //               setMembers([...members, status])
-       //        }
-       // }, [status])
+       
 
        return (
        <>
-              <StyledForm className="signup-form">
-                    <Title>Droom</Title>
-                    <SubTitle>Join the community</SubTitle>
+              <div className="forms">
+                    <h1>Droom</h1>
+                    <h2>Join the community</h2>
                      {touched.username && errors.username && <StyledP className="error">{errors.username}</StyledP>}
-                     <StyledField name="username" 
+                     <input name="username" 
                             type="text" 
                             placeholder="Username" 
                             /> 
                      {touched.password && errors.password && <StyledP className="error">{errors.password}</StyledP>}
-                     <StyledField name="password" 
+                     <input name="password" 
                             type="password" 
                             placeholder="Password" 
                             /> 
                      {touched.role && errors.role && <StyledP className="error">{errors.role}</StyledP>}
-                     <StyledField component="select" name="role" 
-                            type="select" 
+                     <select component="select" name="role" 
+                            type="select"
+                            
                             >
-                                <StyledOption value="">Pick a role:</StyledOption>
-                                <StyledOption value="employee">Employee</StyledOption>
-                                <StyledOption value="employer">Employer</StyledOption>
-                     </StyledField> 
-                     <StyledButton type="submit">
+                                <option value="">Pick a role:</option>
+                                <option value="employee">Employee</option>
+                                <option value="employer">Employer</option>
+                     </select> 
+                     <button type="submit">
                             Submit
-                     </StyledButton>
-              </StyledForm>
+                     </button>
+              </div>
        </>
        )
 }
@@ -136,13 +133,13 @@ export default withFormik({
               role: yup.string().required("Role is required."),
        }),
        handleSubmit: (values, {setStatus, props}) => {
-              console.log(values)
-              axios.post('https://reqres.in/api/users', values)
+              
+              axios.post('https://droomapi.herokuapp.com/api/sample/register', values)
               .then(response => {
                      setStatus(response.data)
                      console.log("res", response.data)
                      props.setMembers(response.data)
-                     response.data.role === 'employee' ? props.history.push('/employeeprofile') : props.history.push('/companyprofile')
+                     values.role === 'employee' ? props.history.push('/employeeprofile') : props.history.push('/companyprofile')
                      // props.history.push('/')
               })
               .catch(err => {
