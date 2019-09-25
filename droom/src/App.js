@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css';
+import './css/index.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import CreateProfile from './components/CreateProfile';
@@ -19,7 +19,10 @@ function App() {
 
   return (
     <div className='App'>
+<<<<<<< HEAD
       <Route path='/' component={LogIn} />
+=======
+>>>>>>> ee0b3e49e00b0692eac1d92ca7820078b95c59aa
       <Route exact path='/' render={props => <SignUp {...props} members={members} setMembers={setMembers} />} />
       <Route path='/employeeprofile' component={CreateProfile} />
       <Route path='/companyprofile' component={CreateCompanyProfile} />
