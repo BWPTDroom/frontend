@@ -75,11 +75,12 @@ import styled from 'styled-components';
 //     font-size: 0.8rem;
 // `
 const StyledP = styled.p`
-    color: rgb(101,204,184, 1);
+    color: white;
     font-family: 'Roboto';
-    font-size: 0.7rem;
-    margin: 0;
-    padding: 0;
+    font-size: 1rem;
+    margin: 20px;
+    padding: 20px;
+
 `
 
 
