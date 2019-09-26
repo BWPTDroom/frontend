@@ -64,7 +64,7 @@ const CreateCompanyProfile = ({ errors, touched, status }) => {
 
     return (
         <Form className='forms'>
-            <h1 className='title'>Set Up Company Profile</h1>
+            <h2 className='title'>Set Up Company Profile</h2>
             
             <Field type='text' name='company_name' placeholder='Company Name' />
             {touched.company_name && errors.company_name && <StyledErrors className='error'>{errors.company_name}</StyledErrors>}
