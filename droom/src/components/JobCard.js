@@ -1,14 +1,8 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import { FaRegHeart, FaRegTimesCircle } from "react-icons/fa";
-import { css } from '@emotion/core';
-import ClipLoader from 'react-spinners/ClipLoader';
+import { Spinner } from 'reactstrap';
 
-const override = css`
-    display: block;
-    margin: 0 auto;
-    border-color: red;
-`;
 
 function JobCard(props) {
     useEffect(() => {
@@ -26,7 +20,7 @@ function JobCard(props) {
     useEffect (() => {
         const timer = setTimeout(() => {
             if(props.loading === true) {
-                return <ClipLoader css={override} />
+                return <Spinner color='dark' />
             }
         }, 1000);
         return () => clearTimeout(timer);
