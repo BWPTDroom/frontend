@@ -13,6 +13,14 @@ function JobCard(props) {
                 console.log(`Error: ${err}`)
             })
     }, [])
+
+    useEffect (() => {
+        const timer = setTimeout(() => {
+            if(props.loading === true) {
+                
+            }
+        })
+    })
     return (
         props.listings.map((job, index) => (
             <div className='jobCard' key={index}>
