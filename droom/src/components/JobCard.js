@@ -29,7 +29,7 @@ function JobCard(props) {
     return (
         props.listings.map((job, index) => (
             <div className='jobCard' key={index}>
-                <p>Company: {job.company}</p>
+                <p>Company: {job.company_name}</p>
                 <p>Position: {job.position}</p>
                 <p>Required Skills: {job.req_skills}</p>
                 <p>Bonus Skills: {job.bonus_skills}</p>
