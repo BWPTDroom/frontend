@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { withFormik, Form, Field } from 'formik';
 import * as yup from 'yup';
 import axios from 'axios';
@@ -92,23 +92,23 @@ const LogIn = ({ errors, touched, status }) => {
 
        return (
        <>
-              <div className="forms">
+              <Form className="forms">
                     <h1>Droom</h1>
                     <h2>Welcome Back!</h2>
                      {touched.username && errors.username && <StyledP className="error">{errors.username}</StyledP>}
-                     <input name="username" 
+                     <Field name="username" 
                             type="text" 
                             placeholder="Username" 
                             /> 
                      {touched.password && errors.password && <StyledP className="error">{errors.password}</StyledP>}
-                     <input name="password" 
+                     <Field name="password" 
                             type="password" 
                             placeholder="Password" 
                             /> 
                      <button type="login">
                             Log In
                      </button>
-              </div>
+              </Form>
        </>
        )
 }

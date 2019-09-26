@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { withFormik, Form, Field } from 'formik';
 import * as yup from 'yup';
 import axios from 'axios';
@@ -64,29 +64,29 @@ const CreateProfile = ({ errors, touched, status }) => {
 
 
     return (
-        <div className='setProfile'>
+        <Form className='setProfile'>
             <h1 className='title'>Set Up Employee Profile</h1>
             
-            <input type='text' name='name' placeholder='Full Name' />
+            <Field type='text' name='name' placeholder='Full Name' />
             {touched.name && errors.name && <StyledErrors className='error'>{errors.name}</StyledErrors>}
             
-            <input type='text' name='email' placeholder='Email' />
+            <Field type='text' name='email' placeholder='Email' />
             {touched.email && errors.email && <StyledErrors className='error'>{errors.email}</StyledErrors>}
             
-            <input type='text' name='phone_number' placeholder='Phone Number' />
+            <Field type='text' name='phone_number' placeholder='Phone Number' />
             {touched.phone_number && errors.phone_number && <StyledErrors className='error'>{errors.phone_number}</StyledErrors>}
 
-            <input type='text' name='job_title' placeholder='Current Job Title' />
+            <Field type='text' name='job_title' placeholder='Current Job Title' />
             {touched.job_title && errors.job_title && <StyledErrors className='error'>{errors.job_title}</StyledErrors>}
 
-            <input type='text' name='desired_position' placeholder='Desired Position' />
+            <Field type='text' name='desired_position' placeholder='Desired Position' />
             {touched.desired_position && errors.desired_position && <StyledErrors className='error'>{errors.desired_position}</StyledErrors>}
             
-            <input type='textarea' name='skills' placeholder='Skills' />
+            <Field type='textarea' name='skills' placeholder='Skills' />
             {touched.skills && errors.skills && <StyledErrors className='error'>{errors.skills}</StyledErrors>}
 
             <button type='submit'>Submit</button>
-        </div>
+        </Form>
     )
 }
 
