@@ -79,8 +79,8 @@ const CreateProfile = ({ errors, touched, status }) => {
             <Field type='text' name='job_title' placeholder='Current Job Title' />
             {touched.job_title && errors.job_title && <StyledErrors className='error'>{errors.job_title}</StyledErrors>}
 
-            <Field type='text' name='desired_position' placeholder='Desired Position' />
-            {touched.desired_position && errors.desired_position && <StyledErrors className='error'>{errors.desired_position}</StyledErrors>}
+            {/* <Field type='text' name='desired_position' placeholder='Desired Position' />
+            {touched.desired_position && errors.desired_position && <StyledErrors className='error'>{errors.desired_position}</StyledErrors>} */}
             
             <Field type='textarea' name='skills' placeholder='Skills' />
             {touched.skills && errors.skills && <StyledErrors className='error'>{errors.skills}</StyledErrors>}
@@ -97,8 +97,10 @@ export default withFormik({
             email: values.email || '',
             phone_number: values.phone_number || '',
             job_title: values.job_title || '',
-            desired_position: values.desired_position || '',
+            // desired_position: values.desired_position || '',
             skills: values.skills || ''
+          
+    
         }
     },
 
@@ -106,17 +108,19 @@ export default withFormik({
         name: yup.string().required('Name is required'),
         email: yup.string().email().required('Email is required'),
         phone_number: yup.number().min(10).required('Phone number is required'),
-        job_title: yup.string().required('Current job title is required'),
-        desired_position: yup.string().required('Desired position is required'),
+        job_title: yup.string().max(10).required('Current job title is required'),
+        // desired_position: yup.string().required('Desired position is required'),
         skills: yup.string().required('Skills are required')
     }),
 
-    handleSubmit: (values, { setStatus }) => {
-
+    handleSubmit: (values, { setStatus, props }) => {
+        console.log(values)
         axios.post('https://droomapi.herokuapp.com/api/sample/prospects', values)
             .then((res) => {
                 setStatus(res.data)
                 console.log(res)
+                props.setProspects(res.data)
+                props.history.push('./joblistings')
             })
             .catch((err) => {
                 console.log('Error:', err)

@@ -92,7 +92,7 @@ export default withFormik({
             req_skills: values.req_skills || '',
             bonus_skills: values.bonus_skills || '',
             company: values.companies.id,
-            // company_name: values.companies.company_name
+        
         }
     },
 
