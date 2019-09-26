@@ -105,7 +105,7 @@ export default withFormik({
     validationSchema: yup.object().shape({
         name: yup.string().required('Name is required'),
         email: yup.string().email().required('Email is required'),
-        phone_number: yup.number().min(9).required('Phone number is required'),
+        phone_number: yup.number().min(10).required('Phone number is required'),
         job_title: yup.string().required('Current job title is required'),
         desired_position: yup.string().required('Desired position is required'),
         skills: yup.string().required('Skills are required')
