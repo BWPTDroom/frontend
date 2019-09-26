@@ -75,7 +75,7 @@ import styled from 'styled-components';
 //     font-size: 0.8rem;
 // `
 const StyledP = styled.p`
-    color: rgb(101,204,184, 1);
+    color: red;
     font-family: 'Roboto';
     font-size: 0.7rem;
     margin: 0;
@@ -90,8 +90,7 @@ const SignUp = ({ errors, touched, status }) => {
        return (
        <>
               <Form className="forms">
-                    <h1>Droom</h1>
-                    <h2>Join the community</h2>
+                    <h1 className='title'>DROOM</h1>
                      {touched.username && errors.username && <StyledP className="error">{errors.username}</StyledP>}
                      <Field name="username" 
                             type="text" 

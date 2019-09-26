@@ -66,8 +66,8 @@ const CreateJobListing = ({ errors, touched, status }) => {
     //     }
     // }, [status])
     return (
-        <Form className='createJobListing'>
-            <h2 className='title'>Create New Job</h2>
+        <Form className='forms'>
+            <h2 className='title new-job'>Create New Job</h2>
             
             <Field type='text' name='position' placeholder='Position Title' />
             {touched.position && errors.position && <StyledErrors className='error'>{errors.position}</StyledErrors>}

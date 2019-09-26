@@ -8,53 +8,56 @@
     width: 380px;
     height: auto;
     max-width: 100%;
-    background-image: linear-gradient(75deg, #17242A, #327A77);
-    color: #FEFFFF;
+    background-image: linear-gradient( #DEF2F1, #FEFFFF);
+    color: #327A77;
     box-shadow: 5px 10px 15px rgb(95, 99, 102, 0.3);
     font-family: Roboto;
 
     .title{
-        font-size: 1.8rem;
+        font-size: 3rem;
         font-weight: bold;
-        margin-top: 60px;
-        font-family: Maven Pro;
+        margin: 20px;
+        font-family: 'Maven Pro';
     }
     input{
         .input-field();
+
     }
     button{
-        height: 50px;
-    width: 318px;
+    height: 50px;
+    width: 300px;
     margin: 30px 0;
-    border-radius: 2px;
     background-color: #17242A;
-    border: 1px solid #327a77;
+    border-radius: 28px;
     color: #FEFFFF;
-    font-family: Maven Pro;
-    font-size: 16px;
+    font-family: "Maven Pro";
+    font-size: 1.2rem;
     text-transform: uppercase;
     }
+
+    button:hover {
+        background-color: #327A77;
+        cursor: pointer;
+    }
+
     h2{
-        font-size: 0.9rem;
-        margin-bottom: 50px;
-        color: rgb(101,204,184, 1);
-        font-weight: lighter;
-        font-family: 'Roboto';
+        color:#327A77;
         text-align: center;
     }
+
     select{
         .input-field();
+        border-radius: none;
 
         option{
             width: 318px;
             margin: 18px 0px;
-            border-radius: 2px;
             border: 1px solid lightgrey;
             padding: 15px;
             box-sizing: border-box;
-            background-color: rgb(242,242,242);
+            background-color:#FEFFFF;
             font-family: 'Roboto';
-            color: rgb(24,38,40, 1);
+            color: #327A77;
         }
     }
 }

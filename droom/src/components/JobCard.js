@@ -4,6 +4,7 @@ import { FaRegHeart, FaRegTimesCircle } from "react-icons/fa";
 import { Spinner } from 'reactstrap';
 
 
+
 function JobCard(props) {
     useEffect(() => {
         axios
