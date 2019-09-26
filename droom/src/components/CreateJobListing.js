@@ -86,12 +86,13 @@ const CreateJobListing = ({ errors, touched, status }) => {
 
 export default withFormik({
     mapPropsToValues: (values) => {
-        // console.log(values)
+        console.log(values)
         return {
             position: values.position || '',
             req_skills: values.req_skills || '',
             bonus_skills: values.bonus_skills || '',
-            company: values.companies.id 
+            company: values.companies.id,
+            // company_name: values.companies.company_name
         }
     },
 
@@ -102,7 +103,7 @@ export default withFormik({
     }),
 
     handleSubmit: (values, { setStatus, props }) => {
-        console.log(values);
+        // console.log(values);
         axios.post('https://droomapi.herokuapp.com/api/sample/postings', values)
             .then((res) => {
                 setStatus(res.data)
