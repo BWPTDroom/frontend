@@ -242,7 +242,9 @@ table {
   background: none;
   border: none;
   padding-right: 40px;
-  color: #17242A;
+}
+.jobCard .reaction .clicked-like {
+  color: red;
 }
 .jobCard .reaction .dislike {
   color: #17242A;

@@ -17,13 +17,13 @@ function JobCard(props) {
     return (
         props.listings.map((job, index) => (
             <div className='jobCard' key={index}>
-                <p className='company-name'>{job.company_name}</p>
+                <p className='company-name'> {job.company}</p>
                 <p>Position: {job.position}</p>
                 <p>Required Skills: {job.req_skills}</p>
                 <p>Bonus Skills: {job.bonus_skills}</p>
 
                 <div className='reaction'>
-                    <button className='like'>
+                    <button className='like clicked-like'>
                         <FaRegHeart />
                     </button>
                     <button className='dislike'>
