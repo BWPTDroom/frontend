@@ -31,18 +31,18 @@ function JobCard(props) {
     return (
         listings.map((job, index) => (
             <div className='jobCard' key={index}>
-                <p>Company: {job.company_name}</p>
+                <p>{job.company_name}</p>
                 <p>Position: {job.position}</p>
                 <p>Required Skills: {job.req_skills}</p>
                 <p>Bonus Skills: {job.bonus_skills}</p>
 
                 <div className='reaction'>
-                    <div className='like'>
+                    <button className='like'>
                         <FaRegHeart onClick={(e) => e.target.style.color = 'green'} />
-                    </div>
-                    <div className='dislike'  >
+                    </button>
+                    <button className='dislike'  >
                         <FaRegTimesCircle onClick={(e) => e.target.style.color = 'red'} />
-                    </div>
+                    </button>
                 </div>
             </div>
     )))
