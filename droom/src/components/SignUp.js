@@ -75,7 +75,11 @@ import styled from 'styled-components';
 //     font-size: 0.8rem;
 // `
 const StyledP = styled.p`
+<<<<<<< HEAD
     color: white;
+=======
+    color: red;
+>>>>>>> 294c3bb4d3fd7605c08f01d62087649ef8111de7
     font-family: 'Roboto';
     font-size: 1rem;
     margin: 20px;
@@ -91,8 +95,7 @@ const SignUp = ({ errors, touched, status }) => {
        return (
        <>
               <Form className="forms">
-                    <h1>Droom</h1>
-                    <h2>Join the community</h2>
+                    <h1 className='title'>DROOM</h1>
                      {touched.username && errors.username && <StyledP className="error">{errors.username}</StyledP>}
                      <Field name="username" 
                             type="text" 
@@ -138,7 +141,7 @@ export default withFormik({
               axios.post('https://droomapi.herokuapp.com/api/sample/register', values)
               .then(response => {
                      setStatus(response.data)
-                     console.log('hey') 
+                     console.log(response.data) 
                      props.setMembers(response.data)
                      values.role === 'employee' ? props.history.push('/employeeprofile') : props.history.push('/companyprofile')
                      // props.history.push('/')

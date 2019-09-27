@@ -99,8 +99,10 @@ export default withFormik({
             email: values.email || '',
             phone_number: values.phone_number || '',
             job_title: values.job_title || '',
-            desired_position: values.desired_position || '',
+            // desired_position: values.desired_position || '',
             skills: values.skills || ''
+          
+    
         }
     },
 
@@ -113,12 +115,14 @@ export default withFormik({
         skills: yup.string().required('*Skills are required')
     }),
 
-    handleSubmit: (values, { setStatus }) => {
-
+    handleSubmit: (values, { setStatus, props }) => {
+        console.log(values)
         axios.post('https://droomapi.herokuapp.com/api/sample/prospects', values)
             .then((res) => {
                 setStatus(res.data)
                 console.log(res)
+                props.setProspects(res.data)
+                props.history.push('./joblistings')
             })
             .catch((err) => {
                 console.log('Error:', err)

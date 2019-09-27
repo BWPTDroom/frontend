@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import { FaRegHeart, FaRegTimesCircle } from "react-icons/fa";
+import { Spinner } from 'reactstrap';
+
 
 function JobCard(props) {
     useEffect(() => {
@@ -14,25 +16,33 @@ function JobCard(props) {
                 console.log(`Error: ${err}`)
             })
     }, [])
+
+    useEffect (() => {
+        const timer = setTimeout(() => {
+            if(props.loading === true) {
+                return <Spinner color='dark' />
+            }
+        }, 1000);
+        return () => clearTimeout(timer);
+    }, []);
+
     return (
         props.listings.map((job, index) => (
             <div className='jobCard' key={index}>
-                <div className = 'content'>
-                <p>{job.company}</p>
+                <p>{job.company_name}</p>
                 <p>Position: {job.position}</p>
                 <p>Required Skills: {job.req_skills}</p>
                 <p>Bonus Skills: {job.bonus_skills}</p>
-                </div>
-                <div className='reaction'>
-                    <button className='like'>
-                        <FaRegHeart />
-                    </button>
+
                     <button className='dislike'>
                         <FaRegTimesCircle />
                     </button>
-                </div>
+                    <button className='like'>
+                        <FaRegHeart />
+                    </button>
+
             </div>
     )))
-}
+};
 
 export default JobCard;
