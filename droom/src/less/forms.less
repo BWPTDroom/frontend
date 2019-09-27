@@ -61,3 +61,53 @@
         }
     }
 }
+
+.jobCard {
+    display: flex;
+    margin: 20px;
+    width: 275px;
+    height: 275px;
+    flex-flow: column;
+    background: #DEF2F1;
+    border-radius: 15px;
+    justify-content: baseline;
+    padding: 40px;
+    font-family: 'roboto';
+    color: #17242A;
+    line-height: 1.25;
+    border: 2px solid #327A77;
+
+    .clicked-like {
+            background: #327A77;
+    }
+
+    .company-name {
+        font-size: 2rem;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .reaction {
+        font-size: 5rem;
+        margin: 20px auto;
+
+        
+        .like {
+            color: red;
+            font-size: 3rem;
+            background: none;
+            border: none;
+            padding-right: 40px;
+        }
+
+
+
+        .dislike {
+            color: #17242A;
+            font-size: 3rem;
+            background: none;
+            border: none;
+            padding-left: 40px;
+        }
+    }
+}
