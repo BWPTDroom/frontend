@@ -64,24 +64,29 @@
 
 .jobCard {
     display: flex;
-    margin: 20px;
+    margin: 20px auto;
     width: 275px;
     height: 275px;
     flex-flow: column;
     background: #DEF2F1;
     border-radius: 15px;
     justify-content: baseline;
-    padding: 40px;
+    padding: 15px 40px 40px 40px;
     font-family: 'roboto';
     color: #17242A;
     line-height: 1.25;
     border: 2px solid #327A77;
+    box-shadow: 5px 5px 5px #17242A;
 
 
     .company-name {
         font-size: 2rem;
-        padding: 20px;
+        padding: 5px;
+        margin-bottom: 20px;
         text-align: center;
+        background: #FEFFFF;
+        border-radius: 15px;
+        border: 1px solid #327A77
     }
 
     .reaction {
@@ -94,12 +99,7 @@
             background: none;
             border: none;
             padding-right: 40px;
-            color: #17242A;
         }
-
-
-
-
 
         .dislike {
             color: #17242A;
