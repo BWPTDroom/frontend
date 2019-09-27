@@ -21,12 +21,14 @@ import styled from 'styled-components';
 // `;
 
 const StyledErrors = styled.p`
-    color: #DEF2F1;
+    color: red;
     font-weight: light;
     margin: 0;
-    margin-left: 32px;
-    padding: 0;
+    margin-left: 105px;
+    padding: 10px 0;
     align-self: flex-start;
+    font-family: Roboto;
+    font-size: 0.7rem;
 `;
 
 // const Title = styled.label`
@@ -67,25 +69,25 @@ const CreateProfile = ({ errors, touched, status }) => {
         <Form className='setProfile'>
             <h1 className='title'>Set Up Employee Profile</h1>
             
-            <Field type='text' name='name' placeholder='Full Name' />
+            <Field className='field' type='text' name='name' placeholder='Full Name' />
             {touched.name && errors.name && <StyledErrors className='error'>{errors.name}</StyledErrors>}
             
-            <Field type='text' name='email' placeholder='Email' />
+            <Field className='field' type='text' name='email' placeholder='Email' />
             {touched.email && errors.email && <StyledErrors className='error'>{errors.email}</StyledErrors>}
             
-            <Field type='text' name='phone_number' placeholder='Phone Number' />
+            <Field className='field' type='text' name='phone_number' placeholder='Phone Number' />
             {touched.phone_number && errors.phone_number && <StyledErrors className='error'>{errors.phone_number}</StyledErrors>}
 
-            <Field type='text' name='job_title' placeholder='Current Job Title' />
+            <Field className='field' type='text' name='job_title' placeholder='Current Job Title' />
             {touched.job_title && errors.job_title && <StyledErrors className='error'>{errors.job_title}</StyledErrors>}
 
-            {/* <Field type='text' name='desired_position' placeholder='Desired Position' />
-            {touched.desired_position && errors.desired_position && <StyledErrors className='error'>{errors.desired_position}</StyledErrors>} */}
+            <Field className='field' type='text' name='desired_position' placeholder='Desired Position' />
+            {touched.desired_position && errors.desired_position && <StyledErrors className='error'>{errors.desired_position}</StyledErrors>}
             
-            <Field type='textarea' name='skills' placeholder='Skills' />
+            <Field className='field' type='textarea' name='skills' placeholder='Skills' />
             {touched.skills && errors.skills && <StyledErrors className='error'>{errors.skills}</StyledErrors>}
 
-            <button type='submit'>Submit</button>
+            <button type='submit'>SUBMIT</button>
         </Form>
     )
 }
@@ -105,12 +107,12 @@ export default withFormik({
     },
 
     validationSchema: yup.object().shape({
-        name: yup.string().required('Name is required'),
-        email: yup.string().email().required('Email is required'),
-        phone_number: yup.number().min(10).required('Phone number is required'),
-        job_title: yup.string().max(10).required('Current job title is required'),
-        // desired_position: yup.string().required('Desired position is required'),
-        skills: yup.string().required('Skills are required')
+        name: yup.string().required('*Name is required'),
+        email: yup.string().email().required('*Email is required'),
+        phone_number: yup.number().min(9).required('*Phone number is required'),
+        job_title: yup.string().required('*Current job title is required'),
+        desired_position: yup.string().required('*Desired position is required'),
+        skills: yup.string().required('*Skills are required')
     }),
 
     handleSubmit: (values, { setStatus, props }) => {

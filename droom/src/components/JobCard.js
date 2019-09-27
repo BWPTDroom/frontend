@@ -36,16 +36,24 @@ function JobCard(props) {
                 <p>Required Skills: {job.req_skills}</p>
                 <p>Bonus Skills: {job.bonus_skills}</p>
 
+<<<<<<< HEAD
+                    <button className='dislike'>
+                        <FaRegTimesCircle />
+=======
                 <div className='reaction'>
                     <button className='like'>
                         <FaRegHeart onClick={(e) => e.target.style.color = 'green'} />
                     </button>
                     <button className='dislike'  >
                         <FaRegTimesCircle onClick={(e) => e.target.style.color = 'red'} />
+>>>>>>> 5b8b61b58a5e74a3f8346b2ccf453c9dabd2465f
                     </button>
-                </div>
+                    <button className='like'>
+                        <FaRegHeart />
+                    </button>
+
             </div>
     )))
-}
+};
 
 export default JobCard;
