@@ -134,7 +134,7 @@ export default withFormik({
        }),
        handleSubmit: (values, {setStatus, props}) => {
               
-              axios.post('https://droomapi.herokuapp.com/api/sample/register', values)
+              axios.post('https://droomapi.herokuapp.com/api/auth/register', values)
               .then(response => {
                      setStatus(response.data)
                      console.log('hey') 
