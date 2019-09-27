@@ -1,16 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FaRegHeart, FaRegTimesCircle } from "react-icons/fa";
 import { Spinner } from 'reactstrap';
 
 
 function JobCard(props) {
+    const [listings, setListings] = useState([])
+    console.log(listings)
     useEffect(() => {
         axios
             .get('https://droomapi.herokuapp.com/api/sample/postings')
             .then((res) => {
-                console.log(res)
-                props.setNewListing(res.data)
+                // console.log(res)
+                setListings(res.data)
             })
             .catch((err) => {
                 console.log(`Error: ${err}`)
@@ -27,7 +29,7 @@ function JobCard(props) {
     }, []);
 
     return (
-        props.listings.map((job, index) => (
+        listings.map((job, index) => (
             <div className='jobCard' key={index}>
                 <p>Company: {job.company_name}</p>
                 <p>Position: {job.position}</p>
@@ -35,12 +37,12 @@ function JobCard(props) {
                 <p>Bonus Skills: {job.bonus_skills}</p>
 
                 <div className='reaction'>
-                    <button className='like'>
-                        <FaRegHeart />
-                    </button>
-                    <button className='dislike'>
-                        <FaRegTimesCircle />
-                    </button>
+                    <div className='like'>
+                        <FaRegHeart onClick={(e) => e.target.style.color = 'green'} />
+                    </div>
+                    <div className='dislike'  >
+                        <FaRegTimesCircle onClick={(e) => e.target.style.color = 'red'} />
+                    </div>
                 </div>
             </div>
     )))
