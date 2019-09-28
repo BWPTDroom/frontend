@@ -60,7 +60,7 @@ const StyledErrors = styled.p`
 //     text-transform: uppercase;
 // `;
 
-const CreateProfile = ({ errors, touched, status }) => {
+const CreateProfile = ({ errors, touched }) => {
 
 
 
@@ -99,7 +99,6 @@ export default withFormik({
             email: values.email || '',
             phone_number: values.phone_number || '',
             job_title: values.job_title || '',
-            // desired_position: values.desired_position || '',
             skills: values.skills || ''
           
     

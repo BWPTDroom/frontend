@@ -82,13 +82,8 @@ const StyledP = styled.p`
     padding: 0;
 `
 
-const LogIn = ({ errors, touched, status }) => {
+const LogIn = ({ errors, touched }) => {
 
-    //    useEffect(() => {
-    //           if (status) {
-    //                  setMembers([...members, status])
-    //           }
-    //    }, [status])
 
        return (
        <>
@@ -124,11 +119,13 @@ export default withFormik({
               username: yup.string().required("Username is required."),
               password: yup.string().required("Password is required.")
        }),
-       handleSubmit: (values, {setStatus}) => {
-              axios.post('https://reqres.in/api/users', values)
+       handleSubmit: (values, {setStatus, props}) => {
+              axios.post('https://droomapi.herokuapp.com/api/auth/login', values)
               .then(response => {
                      setStatus(response.data)
-                     console.log("res", response.data)
+                     localStorage.setItem('token', response.data.token);
+                     console.log("token" ,localStorage.getItem('token'))
+                     props.history.push('/joblistings')
               })
               .catch(err => {
                      console.log("Error:", err)
