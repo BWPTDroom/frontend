@@ -75,11 +75,7 @@ import styled from 'styled-components';
 //     font-size: 0.8rem;
 // `
 const StyledP = styled.p`
-<<<<<<< HEAD
-    color: white;
-=======
     color: red;
->>>>>>> 294c3bb4d3fd7605c08f01d62087649ef8111de7
     font-family: 'Roboto';
     font-size: 1rem;
     margin: 20px;
@@ -88,7 +84,7 @@ const StyledP = styled.p`
 `
 
 
-const SignUp = ({ errors, touched, status }) => {
+const SignUp = ({ errors, touched }) => {
 
        
 
@@ -144,7 +140,6 @@ export default withFormik({
                      console.log(response.data) 
                      props.setMembers(response.data)
                      values.role === 'employee' ? props.history.push('/employeeprofile') : props.history.push('/companyprofile')
-                     // props.history.push('/')
               })
               .catch(err => {
                      console.log("Error:", err)

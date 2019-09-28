@@ -14,7 +14,7 @@ import LogIn from './components/LogIn';
 
 function App() {
 
-  // const [listings, setNewListing] = useState([{position: 'Full Stack Developer', req_skills: 'HTML, CSS, JS', bonus_skills: 'Teamwork'}]);
+
   const [companies, setNewCompany] = useState([]);
   const [prospects, setProspects] = useState([]);
   const [members, setMembers] = useState();
@@ -23,7 +23,7 @@ function App() {
   return (
     <div className='App'>
       <Route exact path='/' render={props => <SignUp {...props} members={members} setMembers={setMembers} />} />
-      <Route path='/employeeprofile' render={props => <CreateProfile {...props} setProspects={setProspects} /> } />
+      <Route path='/employeeprofile' render={props => <CreateProfile {...props} setProspects={setProspects} prospects={prospects} /> } />
       <Route path='/companyprofile' render={props => <CreateCompanyProfile {...props} setNewCompany={setNewCompany} /> } />
       <Route path='/login' render={props => <LogIn {...props}  />} />
       <Route path='/newjob' render={props => <CreateJobListing {...props} companies={companies} /> } />
